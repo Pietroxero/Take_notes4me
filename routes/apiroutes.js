@@ -5,6 +5,7 @@ const router = required('express').Router();
 const uid = require('uuid');
 const fs = require('fs');
 const until = require('util');
+const { resolve } = require('path');
 const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
 const writeFile = data => {return writeFileAsync('../Develop/db/db.json', JSON.stringify(data))};
@@ -32,6 +33,34 @@ router.post('/notes', (req, res) => {
 .catch((err) => res.status(500).json(err))
 });
 
-//here we return a list of notes
+//here we will add/delete new notes but tag these new notes with a GUID
+const addNote = (note) => {
+    return new Promise(function(resolve, reject){
+        if (!note.title || !note.text){
+            throw new Error('You gotta put in a title AND text.');
+        }
+        const newNote = {id: uid.v4(), title: note.title, text: note.text};
+        getNotes()
+        .then((notes) => [...notes, newNote])
+            .then((updatedNotes) => {
+            writeFile(updatedNotes);
+                resolve(newNote);
+            });
+    });
+}
+
+function deleteNote(id) {
+    return new Promise(function(resolve, reject){
+        getNotes()
+        .then((notes) => notes.filter((note) => note.id !==id))
+            .then((filteredNotes) => {
+                writeFile(filteredNotes);
+                resolve();
+            });
+    });
+}
+
+//this will be how we export the router object created
+module.exports = router;
 
 
