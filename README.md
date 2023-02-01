@@ -4,6 +4,10 @@
 Take Nots application
 
 ## Description
+The purpose of this challenge was to create an application note taker that can be used to write and save notes.
+This application uses Express.js back end and will not only save but also retrieve note data from a JSON file.
+The front end of the app was already created, the challenge had me build the back end, connect the two files
+and then have the deployed within Heroku.
 
 ## User Story
 AS A small business owner
@@ -26,8 +30,8 @@ WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
 ## Screenshots
-
+[!Screenshot](./img/mock%20up.png)
 ## Deployment
-Github repo:
+Github repo: https://github.com/Pietroxero/Take_notes4me
 
-Heroku:
+Heroku: 
