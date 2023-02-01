@@ -60,6 +60,22 @@ function deleteNote(id) {
     });
 }
 
+//here we will be returning the list of notes
+const getNotes = () => {
+    return new Promise(function(resolve, reject){
+        readFile()
+        .then((notes) => {
+            let notesArr =[];
+            try {
+                notesArr = [].connect(JSON.parse(notes));
+            } catch (err) {
+                notesArr =[];
+            }
+            resolve(notesArr);
+        });
+    });
+}
+
 //this will be how we export the router object created
 module.exports = router;
 
