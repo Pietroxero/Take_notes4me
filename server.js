@@ -27,5 +27,5 @@ const PORT = process.env.PORT || 3001;
 //listener
 
 app.listen(PORT, () => 
-console.log(`app is listening for PORT ${PORT}`)
+console.log(`localhost:${PORT}`)
 );
