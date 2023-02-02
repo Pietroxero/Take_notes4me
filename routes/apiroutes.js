@@ -8,8 +8,8 @@ const until = require('util');
 const { resolve } = require('path');
 const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
-const writeFile = data => {return writeFileAsync('../Develop/db/db.json', JSON.stringify(data))};
-const readFile = () => {return readFileAsync('./Develop/db/db.json', 'utf8')};
+const writeFile = data => {return writeFileAsync('..db.json', JSON.stringify(data))};
+const readFile = () => {return readFileAsync('..db.json', 'utf8')};
 
 //routes
 //return notes

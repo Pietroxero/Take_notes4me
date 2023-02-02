@@ -13,12 +13,12 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 //this will be the router
 //this points our server to the 'route' file.
 
-app.use('./', htmlRoute)
+app.use('/', htmlRoute)
 app.use('/api', apiRoute);
 
 //sets an initial port, to be used in the listener
