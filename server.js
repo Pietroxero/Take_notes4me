@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
-app.use(express.static('./Develop/public'));
+app.use(express.static('./public'));
 
 //this will be the router
 //this points our server to the 'route' file.
