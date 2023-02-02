@@ -1,10 +1,10 @@
 // loading data
 //this will be linking the routes we have made to data sources
 
-const router = required('express').Router();
-const uid = require('uuid');
+const router = require('express').Router();
+const uuid = require('uuid');
 const fs = require('fs');
-const until = require('util');
+const util = require('util');
 const { resolve } = require('path');
 const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
@@ -39,7 +39,7 @@ const addNote = (note) => {
         if (!note.title || !note.text){
             throw new Error('You gotta put in a title AND text.');
         }
-        const newNote = {id: uid.v4(), title: note.title, text: note.text};
+        const newNote = {id: uuid.v4(), title: note.title, text: note.text};
         getNotes()
         .then((notes) => [...notes, newNote])
             .then((updatedNotes) => {
