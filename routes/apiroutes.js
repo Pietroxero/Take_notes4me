@@ -66,7 +66,7 @@ const getNotes = () => {
     return new Promise(function(resolve, reject){
         readFile()
         .then((notes) => {
-            console.log(notes);
+            // console.log(notes);
             let notesArr =[];
             try {
                 notesArr = JSON.parse(notes);
