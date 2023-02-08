@@ -8,13 +8,15 @@ const router = require('express').Router();
 //here we will be creating the GET requests
 //this will show a user the content of the html
 
+router.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/notes.html'));
+});
+
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-router.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/notes.html'));
-});
+
 
 //export the object
 module.exports = router;
